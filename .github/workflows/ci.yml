@@ -20,7 +20,7 @@ jobs:
       issues: write
     with:
       language: go
-      language_version: "1.22"
+      language_version: "1.24"
       enable_lint: true
       enable_test: true
       enable_security_scan: true
