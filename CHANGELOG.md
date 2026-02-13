@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/mruthyunjaya-lakkappanavar/sample-app-go/compare/v1.0.0...v1.1.0) (2026-02-13)
+
+
+### Features
+
+* add /api/status endpoint with uptime and request count ([#5](https://github.com/mruthyunjaya-lakkappanavar/sample-app-go/issues/5)) ([b1dc58f](https://github.com/mruthyunjaya-lakkappanavar/sample-app-go/commit/b1dc58fd826193ebbffdbf2d9ac350023676fd72))
+
 ## 1.0.0 (2026-02-13)
 
 
