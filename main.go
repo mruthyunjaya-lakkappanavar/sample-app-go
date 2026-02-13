@@ -34,10 +34,12 @@ func getEnv(key, fallback string) string {
 // healthHandler returns the health status of the application.
 func healthHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(HealthResponse{
+	if err := json.NewEncoder(w).Encode(HealthResponse{
 		Status:  "ok",
 		Version: version,
-	})
+	}); err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
 }
 
 // greetHandler returns a greeting message.
@@ -47,9 +49,11 @@ func greetHandler(w http.ResponseWriter, r *http.Request) {
 		name = "World"
 	}
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(GreetResponse{
+	if err := json.NewEncoder(w).Encode(GreetResponse{
 		Message: fmt.Sprintf("Hello, %s!", name),
-	})
+	}); err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
 }
 
 // NewRouter creates and returns the application router.
