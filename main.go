@@ -71,7 +71,7 @@ func greetHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	w.Header().Set("Content-Type", "application/json")
 	if err := json.NewEncoder(w).Encode(GreetResponse{
-		Message: fmt.Sprintf("Hello, %s!", name),
+		Message: fmt.Sprintf("Hi, %s!", name),  // Changed Hello → Hi (breaks test)
 	}); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
